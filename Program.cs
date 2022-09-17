@@ -15,9 +15,10 @@ var gitlabToken = builder.Configuration["GitLabToken"];
 var discordToken = builder.Configuration["DiscordToken"];
 var discordChannelId = builder.Configuration["DiscordChannelId"];
 var discordLabelMap = builder.Configuration.GetSection("DiscordLabelMap").Get<Dictionary<string, string>>();
+var databaseFile = builder.Configuration["DatabaseFile"] ?? "issues.db";
 
 // Local database
-builder.Services.AddDbContext<IssueContext>(options => options.UseSqlite("Data Source=issues.db"));
+builder.Services.AddDbContext<IssueContext>(options => options.UseSqlite($"Data Source={databaseFile}"));
 
 // Http client factories
 builder.Services.AddHttpClient("Discord", httpClient =>
