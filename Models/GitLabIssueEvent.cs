@@ -11,6 +11,7 @@ public class GitLabIssueAttributes
 {
     public string Title { get; set; } = null!;
     public string? Description { get; set; }
+    public int Id { get; set; }
     public string Url { get; set; } = null!;
     public List<GitLabIssueLabel> Labels { get; set; } = new();
     public string? Action { get; set; }

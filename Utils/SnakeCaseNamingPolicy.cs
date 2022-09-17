@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace IssueSync;
+namespace IssueSync.Utils;
 
 // https://stackoverflow.com/a/58576400
 public class SnakeCaseNamingPolicy : JsonNamingPolicy
