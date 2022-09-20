@@ -22,7 +22,6 @@ public class DiscordService
         var body = new DiscordThreadStart
         {
             Name = title,
-            AutoArchiveDuration = 10080,
             Message = new DiscordThreadMessage
             {
                 Content = message

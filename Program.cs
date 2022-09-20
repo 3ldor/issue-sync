@@ -61,7 +61,7 @@ app.MapPost("/gitlab", async ([FromHeader(Name = "X-Gitlab-Token")] string token
         var labels = eventAttributes.Labels.Where(l => discordLabelMap.ContainsKey(l.Id.ToString())).Select(l => discordLabelMap[l.Id.ToString()]);
 
         // Send to Discord
-        var channelId = await discordService.CreatePost(discordChannelId, eventAttributes.Title, message, labels);
+        var channelId = await discordService.CreatePost(discordChannelId, eventAttributes.Title.Truncate(100), message, labels);
         
         // Save in database
         context.Issues.Add(new Issue { Id = eventAttributes.Id, DiscordChannelId = channelId });
